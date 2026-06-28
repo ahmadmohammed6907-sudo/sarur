@@ -1,0 +1,275 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ─────────────────────────────────────────────────────────────
+   Fonts
+───────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* ─────────────────────────────────────────────────────────────
+   SARUR Brand Tokens (Light)
+───────────────────────────────────────────────────────────── */
+:root {
+  /* SARUR brand palette */
+  --cream: #f4f0e6;
+  --paper: #faf8f2;
+  --soft-gray: #d8d4ca;
+  --teal: #2c8a84;
+  --teal-dark: #1f5f5b;
+  --sage: #a8c5a0;
+  --ink: #2a2a2a;
+
+  --background: #f4f0e6;
+  --foreground: #2a2a2a;
+  --card: #faf8f2;
+  --card-foreground: #2a2a2a;
+  --popover: #faf8f2;
+  --popover-foreground: #2a2a2a;
+  --primary: #2c8a84;
+  --primary-foreground: #faf8f2;
+  --secondary: #a8c5a0;
+  --secondary-foreground: #1f3a30;
+  --muted: #ece7d9;
+  --muted-foreground: #6b6657;
+  --accent: #1f5f5b;
+  --accent-foreground: #faf8f2;
+  --destructive: #e53935;
+  --destructive-foreground: #faf8f2;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --border: #d8d4ca;
+  --input: #ece7d9;
+  --ring: #2c8a84;
+  --chart-1: #2c8a84;
+  --chart-2: #a8c5a0;
+  --chart-3: #1f5f5b;
+  --chart-4: #ff9800;
+  --chart-5: #4caf50;
+  --radius: 1rem;
+  --sidebar: #faf8f2;
+  --sidebar-foreground: #2a2a2a;
+  --sidebar-primary: #2c8a84;
+  --sidebar-primary-foreground: #faf8f2;
+  --sidebar-accent: #ece7d9;
+  --sidebar-accent-foreground: #1f5f5b;
+  --sidebar-border: #d8d4ca;
+  --sidebar-ring: #2c8a84;
+
+  /* Neo-skeuomorphic shadow recipes */
+  --shadow-paper: 6px 6px 16px rgba(150, 142, 120, 0.35), -6px -6px 16px rgba(255, 253, 247, 0.9);
+  --shadow-paper-sm: 3px 3px 8px rgba(150, 142, 120, 0.3), -3px -3px 8px rgba(255, 253, 247, 0.85);
+  --shadow-paper-lg: 12px 12px 30px rgba(150, 142, 120, 0.4), -10px -10px 28px rgba(255, 253, 247, 0.95);
+  --shadow-inset: inset 4px 4px 9px rgba(150, 142, 120, 0.4), inset -4px -4px 9px rgba(255, 253, 247, 0.9);
+  --shadow-inset-sm: inset 2px 2px 5px rgba(150, 142, 120, 0.35), inset -2px -2px 5px rgba(255, 253, 247, 0.85);
+}
+
+.dark {
+  --cream: #1a1f1e;
+  --paper: #222827;
+  --soft-gray: #353c3a;
+  --background: #161a19;
+  --foreground: #ece7d9;
+  --card: #222827;
+  --card-foreground: #ece7d9;
+  --popover: #222827;
+  --popover-foreground: #ece7d9;
+  --primary: #3fa39c;
+  --primary-foreground: #0e1413;
+  --secondary: #2f4a3e;
+  --secondary-foreground: #cfe3c9;
+  --muted: #262c2b;
+  --muted-foreground: #9a988c;
+  --accent: #3fa39c;
+  --accent-foreground: #0e1413;
+  --destructive: #e53935;
+  --destructive-foreground: #faf8f2;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --border: #313837;
+  --input: #262c2b;
+  --ring: #3fa39c;
+  --chart-1: #3fa39c;
+  --chart-2: #a8c5a0;
+  --chart-3: #2f4a3e;
+  --chart-4: #ff9800;
+  --chart-5: #4caf50;
+  --sidebar: #1a1f1e;
+  --sidebar-foreground: #ece7d9;
+  --sidebar-primary: #3fa39c;
+  --sidebar-primary-foreground: #0e1413;
+  --sidebar-accent: #262c2b;
+  --sidebar-accent-foreground: #cfe3c9;
+  --sidebar-border: #313837;
+  --sidebar-ring: #3fa39c;
+
+  --shadow-paper: 6px 6px 16px rgba(0, 0, 0, 0.55), -5px -5px 14px rgba(60, 68, 66, 0.45);
+  --shadow-paper-sm: 3px 3px 8px rgba(0, 0, 0, 0.5), -3px -3px 8px rgba(60, 68, 66, 0.4);
+  --shadow-paper-lg: 12px 12px 30px rgba(0, 0, 0, 0.6), -10px -10px 26px rgba(60, 68, 66, 0.45);
+  --shadow-inset: inset 4px 4px 9px rgba(0, 0, 0, 0.5), inset -4px -4px 9px rgba(60, 68, 66, 0.4);
+  --shadow-inset-sm: inset 2px 2px 5px rgba(0, 0, 0, 0.45), inset -2px -2px 5px rgba(60, 68, 66, 0.35);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tailwind v4 Theme Bridge
+───────────────────────────────────────────────────────────── */
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-cream: var(--cream);
+  --color-paper: var(--paper);
+  --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
+  --color-sage: var(--sage);
+  --color-ink: var(--ink);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Animations from techni */
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-in: fade-in 0.5s ease both;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-shimmer: shimmer 2.2s linear infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Keyframes (from techni)
+───────────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Base Styles
+───────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background-image: radial-gradient(rgba(150, 142, 120, 0.05) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Utilities — SARUR shadows
+───────────────────────────────────────────────────────────── */
+@layer utilities {
+  .shadow-paper    { box-shadow: var(--shadow-paper); }
+  .shadow-paper-sm { box-shadow: var(--shadow-paper-sm); }
+  .shadow-paper-lg { box-shadow: var(--shadow-paper-lg); }
+  .shadow-inset    { box-shadow: var(--shadow-inset); }
+  .shadow-inset-sm { box-shadow: var(--shadow-inset-sm); }
+
+  /* Gradient text (from techni) */
+  .text-gradient {
+    background: linear-gradient(100deg, var(--teal) 0%, var(--sage) 50%, var(--teal-dark) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Glass surfaces (from techni, adapted for SARUR palette) */
+  .glass {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+  }
+  .glass-strong {
+    background: rgba(250, 248, 242, 0.7);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+  }
+  .dark .glass-strong {
+    background: rgba(34, 40, 39, 0.72);
+  }
+
+  /* Subtle hover lift */
+  .lift {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.25s ease,
+                background 0.25s ease;
+  }
+  .lift:hover { transform: translateY(-4px); }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Custom Scrollbar
+───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb {
+  background: var(--soft-gray);
+  border-radius: 999px;
+  border: 2px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--muted-foreground); }
+
+::selection {
+  background: rgba(44, 138, 132, 0.35);
+  color: var(--foreground);
+}
